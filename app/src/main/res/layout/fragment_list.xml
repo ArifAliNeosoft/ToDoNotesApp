@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="sharedVm"
+            type="com.example.notesapplication.presentation.viewmodels.SharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFragmentList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.main.MainActivity">
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabListFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:navigateToAddFragment="@{true}"
+            android:src="@drawable/add_icon"
+            android:tintMode="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+
+            android:id="@+id/ivNoDataIcon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:alpha="0.7"
+            android:emptyDatabase="@{sharedVm.isDatabaseEmpty}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000000" />
+
+        <TextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:alpha="0.7"
+            android:emptyDatabase="@{sharedVm.isDatabaseEmpty}"
+            android:text="Add Notes"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/ivNoDataIcon"
+            app:layout_constraintStart_toStartOf="@+id/ivNoDataIcon"
+            app:layout_constraintTop_toBottomOf="@+id/ivNoDataIcon" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

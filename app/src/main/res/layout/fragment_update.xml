@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="args"
+            type="com.example.notesapplication.presentation.fragments.UpdateFragmentArgs" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        tools:context=".presentation.fragment.UpdateFragment">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleNote"
+            android:text="Title"
+            android:textSize="20sp"
+            app:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNotes"
+            android:text="Notes"
+            android:textSize="20sp"
+            app:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/etUpdateNoteTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <EditText
+            android:background="@drawable/corner_edittext"
+            android:id="@+id/etUpdateNoteTitle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:autofillHints="Title"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@{args.noteParcel.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleNote" />
+
+
+        <EditText
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corner_edittext"
+            android:id="@+id/etUpdateNoteDesc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:autofillHints="To Do"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:text="@{args.noteParcel.description}"
+            android:paddingBottom="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/clConstrant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNotes" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clConstrant"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdate"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:text="Update"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnDelete"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:text="Delete"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
