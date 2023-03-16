@@ -30,25 +30,10 @@ class NoteViewModel @Inject constructor(
     val sortByLowPriority: LiveData<List<NoteDataEntity>> = _sortByLowPriority
 
     init {
-        sortHighPriority()
-        sortLowPriority()
+       
     }
 
-    private fun sortHighPriority() {
-        viewModelScope.launch {
-            useCase.sortByHighPriorityUseCase.invoke().collectLatest {
-                _sortByHighPriority.value = it
-            }
-        }
-    }
 
-    private fun sortLowPriority() {
-        viewModelScope.launch {
-            useCase.sortByLowPriorityUseCase.invoke().collectLatest {
-                _sortByLowPriority.value = it
-            }
-        }
-    }
 
     fun getAllData() {
         viewModelScope.launch {
@@ -58,13 +43,7 @@ class NoteViewModel @Inject constructor(
         }
     }
 
-    fun searchNote(query: String) {
-        viewModelScope.launch {
-            useCase.searchNoteUseCase.invoke(query).collect {
-                _searchNote.postValue(it)
-            }
-        }
-    }
+
 
     fun insertData(noteData: NoteDataEntity) {
         viewModelScope.launch {
@@ -84,10 +63,6 @@ class NoteViewModel @Inject constructor(
         }
     }
 
-    fun deleteAll() {
-        viewModelScope.launch {
-            useCase.deleteAllNoteUseCase.invoke()
-        }
-    }
+
 
 }

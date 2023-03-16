@@ -43,12 +43,9 @@ object AppModule {
         return DomainUseCase(
             getAllNoteUseCase = GetAllNoteUseCase(repository),
             insertNoteUseCase = InsertNoteUseCase(repository),
-            searchNoteUseCase = SearchNoteUseCase(repository),
-            deleteAllNoteUseCase = DeleteAllNoteUseCase(repository),
             deleteNoteUseCase = DeleteNoteUseCase(repository),
-            updateNoteUseCase = UpdateNoteUseCase(repository),
-            sortByHighPriorityUseCase = SortByHighPriorityUseCase(repository),
-            sortByLowPriorityUseCase = SortByLowPriorityUseCase(repository)
+            updateNoteUseCase = UpdateNoteUseCase(repository)
+
         )
     }
 
